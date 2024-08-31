@@ -1,15 +1,15 @@
 /* Base styles for the Header */
 .header {
     position: fixed;
-    /* top: 0; */
+    top: 0;
     width: 100%;
     background-color: white; /* Light mode background */
     /* z-index: 50; */
     /* padding: 16px 16px 16px 16px;  */
     padding-left: 1rem;
     padding-right: 1rem;
-    padding-top: 38px;
-    padding-bottom: 38px;
+    padding-top: 24px;
+    padding-bottom: 24px;
     justify-content: center;
     display: flex;
     align-items: center;
@@ -18,7 +18,7 @@
 
 .container {
     max-width: 1296px; /* Sets a maximum width of 1296px */
-    margin: auto; 
+    /* margin: auto;  */
     display: flex;
     width: 100vw;
     align-items: center;
@@ -35,7 +35,7 @@
 
   .logo img {
     width: auto;
-    height: 130px;
+    height: 80px;
     /* color: transparent; */
     object-fit: contain;
     display: block;
@@ -43,7 +43,7 @@
 
 /* Main Navigation Links Styling */
 .nav-links {
-    margin-top: 24px;              /* Top margin for spacing on small screens */
+    margin-top: 24px; 
   }
   
   @media (min-width: 768px) {

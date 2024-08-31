@@ -1,13 +1,12 @@
 import './App.css';
+import Banner from './components/Banner';
 import Header from './components/Header';
 
 function App() {
   return (
     <>
       <Header/>
-      <div style={{
-        height: '2000px'
-      }}></div>
+      <Banner/>
     </>
   );
 }
