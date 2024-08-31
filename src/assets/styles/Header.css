@@ -1,0 +1,185 @@
+/* Base styles for the Header */
+.header {
+    position: fixed;
+    /* top: 0; */
+    width: 100%;
+    background-color: white; /* Light mode background */
+    /* z-index: 50; */
+    /* padding: 16px 16px 16px 16px;  */
+    padding-left: 1rem;
+    padding-right: 1rem;
+    padding-top: 38px;
+    padding-bottom: 38px;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    color: #222;
+}
+
+.container {
+    max-width: 1296px; /* Sets a maximum width of 1296px */
+    margin: auto; 
+    display: flex;
+    width: 100vw;
+    align-items: center;
+    flex-direction: row; /* Stacks items vertically in small screens (default behavior) */
+    justify-content: space-between; /* Distributes items evenly along the main axis */
+    background-color: white; /* Light mode background */
+  }
+
+  .logo {
+    display: flex; /* Establishes a flex container */
+    align-items: center; /* Centers items vertically within the flex container */
+    justify-content: space-between; /* Distributes items evenly along the main axis (horizontally) */
+  }
+
+  .logo img {
+    width: auto;
+    height: 130px;
+    /* color: transparent; */
+    object-fit: contain;
+    display: block;
+  }
+
+/* Main Navigation Links Styling */
+.nav-links {
+    margin-top: 24px;              /* Top margin for spacing on small screens */
+  }
+  
+  @media (min-width: 768px) {
+    .nav-links {
+      margin-top: 0;               /* Removes margin on larger screens */
+      display: block;              /* Ensures the nav is shown on larger screens */
+    }
+  }
+  
+  .nav-links ul {
+    display: flex;                 /* Flex layout for horizontal alignment */
+    flex-direction: column;        /* Column layout on small screens */
+    gap: 8px;                      /* Gap between items */
+    list-style-type: none;         /* Removes the bullet points (dots) */
+    padding: 0;                    /* Removes default padding */
+    margin: 0;                     /* Removes default margin */
+  }
+  
+  @media (min-width: 768px) {
+    .nav-links ul {
+      flex-direction: row;         /* Switch to row layout on larger screens */
+      gap: 20px;                   /* Larger gap between items on larger screens */
+    }
+  }
+  
+  .nav-item a {
+    font-size: 18px;               /* Font size for navigation links */
+    line-height: 30px;             /* Line height for proper spacing */
+    color: #000;                   /* Default text color */
+    transition: color 0.3s ease;   /* Smooth color transition on hover */
+    text-decoration: none;         /* Removes underline from links */
+  }
+  
+  .nav-item a:hover {
+    color: #7668E5;                /* Hover color for light mode */
+  }
+  
+  .dark-mode .nav-item a {
+    color: #fff;                   /* Text color in dark mode */
+  }
+  
+  .dark-mode .nav-item a:hover {
+    color: #7668E5;                /* Hover color in dark mode */
+  }
+
+
+  :root {
+    --primary: #353589;
+    --secondary: #7668e5;
+    --dark: #222;
+    --gray: #444;
+    --gray-medium: #666;
+    --gray-light: #f5f5f5;
+    --white: #fff;
+    --white-dark: #f7f8fa;
+    --dark-bg: #191e29;
+    --grad: linear-gradient(317.63deg, #353589 -7.42%, #9a9aff 120.45%);
+  }
+
+  .header-actions {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+  }
+  
+  /* Search Bar */
+  .search-bar {
+    padding: 8px 12px;
+    border: 1.5px solid #ccc;
+    font-family: 'Montserrat';
+    border-radius: 15px;
+    font-size: 16px;
+    outline: none;
+    transition: border-color 0.3s;
+    width: 200px; /* You can adjust this width as needed */
+  }
+  
+  .search-bar:focus {
+    border-color: #7668E5;
+  }
+  
+  /* Location Button */
+  .location-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #7668E5;
+    border: none;
+    border-radius: 50%;
+    padding: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .location-button:hover {
+    background-color: #5a4fcf;
+  }
+  
+  .location-button img {
+    width: 28px;
+    height: 28px;
+  }
+  
+  /* Dark Mode Toggle */
+  .dark-mode-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+    border: none;
+    border-radius: 50%;
+    padding: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .dark-mode-toggle:hover {
+    background-color: #f0f0f0;
+  }
+  
+  .dark-mode-toggle img {
+    width: 28px;
+    height: 28px;
+  }
+  
+  /* Dark Mode Styles */
+  body.dark-mode .location-button {
+    background-color: #444;
+  }
+  
+  body.dark-mode .dark-mode-toggle {
+    background-color: #444;
+  }
+  
+  body.dark-mode .search-bar {
+    background-color: #333;
+    color: white;
+    border-color: #555;
+  }
