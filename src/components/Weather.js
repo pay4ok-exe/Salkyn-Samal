@@ -8,10 +8,10 @@ const Weather = () => {
   return (
     <div className="weather-container">
       <div className="button-group">
-        <button>
+        <button className='btn active' >
           Today
         </button>
-        <button>
+        <button className='btn'>
           Weekly
         </button>
       </div>
