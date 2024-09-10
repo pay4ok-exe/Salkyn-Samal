@@ -8,3 +8,15 @@ body {
   box-sizing: border-box;
   background-color: white;
 }
+:root {
+  --primary: #353589;
+  --secondary: #7668e5;
+  --dark: #222;
+  --gray: #444;
+  --gray-medium: #666;
+  --gray-light: #f5f5f5;
+  --white: #fff;
+  --white-dark: #f7f8fa;
+  --dark-bg: #191e29;
+  --grad: linear-gradient(317.63deg, #353589 -7.42%, #9a9aff 120.45%);
+}
