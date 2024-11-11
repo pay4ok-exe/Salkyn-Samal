@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 import CardDay from "./CardDay";
+import WeekCard from "./WeekCard";
 import SunIcon from "../assets/img/partly_cloudy.png";
 import RainIcon from "../assets/img/rain_showers.png";
 import ClearNightIcon from "../assets/img/clear_night.png";
 import PartlyCloudyNightIcon from "../assets/img/partly_cloudy_night.png";
+import SunnyIcon from "../assets/img/sunny.png";
 
 const WeatherForecast = () => {
   const [view, setView] = useState("today");
@@ -57,6 +59,26 @@ const WeatherForecast = () => {
       description,
     };
   });
+
+  // Generate weekly forecast data
+  const weeklyData = Array.from({ length: 7 }, (_, i) => {
+    const dayDate = new Date();
+    dayDate.setDate(today.getDate() + i); // Increment each day
+
+    const dayName = daysOfWeek[dayDate.getDay()]; // Day name (e.g., "MON")
+    const date = dayDate.toLocaleDateString("en-US", {
+      day: "numeric",
+      month: "short",
+    }); // Format date as "7 Sep"
+
+    return {
+      icon: i % 2 === 0 ? SunnyIcon : RainIcon,
+      day: dayName,
+      date,
+      temp: 23 + i, // Example temperature
+    };
+  });
+
   return (
     <section className="mt-[100px] mx-[30px] w-auto">
       <div className="max-w-screen-xl mx-auto flex items-center justify-between">
@@ -97,20 +119,33 @@ const WeatherForecast = () => {
         </div>
       </div>
       {/* Forecast Cards */}
-      <div className="mt-[50px] flex overflow-x-auto gap-6 scrollbar-hide">
-        {forecastData.map((data, index) => (
-          <CardDay
-            key={index}
-            icon={data.icon}
-            day={data.day}
-            time={data.time}
-            temp={data.temp}
-            tempHigh={data.tempHigh}
-            wind={data.wind}
-            rain={data.rain}
-            description={data.description}
-          />
-        ))}
+      <div
+        className={`my-[50px] flex overflow-x-auto scrollbar-hide justify-between ${
+          view === "today" ? "gap-6" : "gap-4 justify-center"
+        }`}>
+        {view === "today"
+          ? forecastData.map((data, index) => (
+              <CardDay
+                key={index}
+                icon={data.icon}
+                day={data.day}
+                time={data.time}
+                temp={data.temp}
+                tempHigh={data.tempHigh}
+                wind={data.wind}
+                rain={data.rain}
+                description={data.description}
+              />
+            ))
+          : weeklyData.map((data, index) => (
+              <WeekCard
+                key={index}
+                icon={data.icon}
+                day={data.day}
+                date={data.date}
+                temp={data.temp}
+              />
+            ))}
       </div>
     </section>
   );
