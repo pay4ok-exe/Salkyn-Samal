@@ -14,7 +14,7 @@ const CardDay = ({
   description,
 }) => {
   return (
-    <div className="bg-[#f8f8f8] rounded-2xl p-8 w-72 sm:w-64 h-96 flex flex-col items-center text-center space-y-3 justify-between  hover:bg-gradient-to-b hover:from-[#6a6ac7] hover:to-[#4e4e96] hover:text-white">
+    <div className="bg-[#f8f8f8] rounded-2xl p-8 w-80 sm:w-64 h-96 flex flex-col items-center text-center space-y-3 justify-between  hover:bg-gradient-to-b hover:from-[#6a6ac7] hover:to-[#4e4e96] hover:text-white">
       {/* Weather Icon */}
       <img src={icon} alt="Weather Icon" className="h-[150px]" />
 
