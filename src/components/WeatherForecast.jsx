@@ -105,16 +105,40 @@ const WeatherForecast = () => {
         </div>
 
         {/* Navigation Buttons */}
-        <div className="flex gap-4">
+        <div className="flex items-center gap-3">
           <button
-            className="w-8 h-8 flex items-center justify-center rounded-full bg-gray-200 hover:bg-gray-300 transition-colors"
+            type="button"
+            className="w-8 h-8 flex items-center justify-center rounded-full border hover:bg-[#4e4e96] hover:text-white  transition-colors text-2xl disabled:bg-gray-100 disabled:text-gray-400"
             aria-label="Previous">
-            &lt;
+            <svg
+              stroke="currentColor"
+              fill="currentColor"
+              strokeWidth="0"
+              viewBox="0 0 16 16"
+              className="w-4 h-4"
+              xmlns="http://www.w3.org/2000/svg">
+              <path
+                fillRule="evenodd"
+                d="M12 8a.5.5 0 0 1-.5.5H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H11.5a.5.5 0 0 1 .5.5z"
+              />
+            </svg>
           </button>
           <button
-            className="w-8 h-8 flex items-center justify-center rounded-full bg-gray-200 hover:bg-gray-300 transition-colors"
+            type="button"
+            className="w-8 h-8 flex items-center justify-center rounded-full border hover:bg-[#4e4e96] hover:text-white  transition-colors text-2xl"
             aria-label="Next">
-            &gt;
+            <svg
+              stroke="currentColor"
+              fill="currentColor"
+              strokeWidth="0"
+              viewBox="0 0 16 16"
+              className="w-4 h-4"
+              xmlns="http://www.w3.org/2000/svg">
+              <path
+                fillRule="evenodd"
+                d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8z"
+              />
+            </svg>
           </button>
         </div>
       </div>
