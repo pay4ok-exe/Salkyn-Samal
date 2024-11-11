@@ -1,29 +1,9 @@
 // Banner.js
 import React, { useState } from "react";
-import CloudIcon from "../assets/img/w_cloud.png"; // Replace with correct path
-import RainIcon from "../assets/img/w_rain.png"; // Replace with correct path
-import SunCloudIcon from "../assets/img/sun_cloud.png"; // Replace with correct path
-import BannerBg from "../assets/img/banner_bg.png"; // Replace with correct path
+import SunCloudIcon from "../assets/img/sun_cloud.png";
+import BannerBg from "../assets/img/banner_bg.png";
 
-const Banner = () => {
-  // State to manage weather data
-  const [weatherData, setWeatherData] = useState({
-    city: "San Francisco",
-    date: "Monday, May 23",
-    updateTime: "2:45 PM",
-    weatherDetails: [
-      { type: "Wind", value: "3km/h", icon: CloudIcon },
-      { type: "Wind", value: "3km/h", icon: CloudIcon },
-      { type: "Rain", value: "78%", icon: RainIcon },
-      { type: "Rain", value: "78%", icon: RainIcon },
-    ],
-    todayTemperature: 23,
-    temperatureRange: {
-      min: 23,
-      max: 31,
-    },
-  });
-
+const Banner = ({ weatherData }) => {
   return (
     <section
       className="bg-cover bg-center mt-[130px] mx-[30px] rounded-2xl p-8"
@@ -45,7 +25,9 @@ const Banner = () => {
                   <img
                     src={detail.icon}
                     alt={`${detail.type} Icon`}
-                    className="h-6 w-6"
+                    className={`h-6 w-6 ${
+                      index % 2 == 1 ? "brightness-0 invert" : ""
+                    } `}
                   />
                 </div>
                 <p className="text-black">
