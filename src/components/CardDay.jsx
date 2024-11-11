@@ -14,9 +14,9 @@ const CardDay = ({
   description,
 }) => {
   return (
-    <div className="bg-[#f8f8f8] rounded-2xl p-8 w-72 sm:w-64 h-96 flex flex-col items-center text-center space-y-3 justify-between">
+    <div className="bg-[#f8f8f8] rounded-2xl p-8 w-72 sm:w-64 h-96 flex flex-col items-center text-center space-y-3 justify-between  hover:bg-gradient-to-b hover:from-[#6a6ac7] hover:to-[#4e4e96] hover:text-white">
       {/* Weather Icon */}
-      <img src={icon} alt="Weather Icon" className="w-48 h-auto mx-auto" />
+      <img src={icon} alt="Weather Icon" className="h-[150px]" />
 
       {/* Day and Time */}
       <div className="flex justify-center gap-2">
@@ -30,24 +30,32 @@ const CardDay = ({
 
       {/* Temperature */}
       <div className="flex gap-4 justify-end items-end">
-        <div className="text-[#353589] text-5xl font-bold">{temp}°</div>
-        <div className="text-gray-500 text-2xl">{tempHigh}°</div>
+        <div className="text-5xl font-bold ">{temp}°</div>
+        <div className="text-2xl ">{tempHigh}°</div>
       </div>
 
-      {/* Wind and Rain */}
-      <div className="flex justify-center gap-4 text-lg text-[#6a6ac7] font-medium">
+      {/* Wind and Rain Icons with Background Circle */}
+      <div className="flex justify-center gap-4 text-lg font-medium">
         <span className="flex items-center gap-1">
-          <img src={CloudIcon} alt="Wind Icon" className="w-6 h-6" />
-          {wind}
+          <div className="w-8 h-8 flex items-center justify-center rounded-full bg-[#353589]">
+            <img
+              src={CloudIcon}
+              alt="Wind Icon"
+              className="w-4 h-4 hover:brightness-0 hover:invert"
+            />
+          </div>
+          <span className="">{wind}</span>
         </span>
         <span className="flex items-center gap-1">
-          <img src={RainIcon} alt="Rain Icon" className="w-6 h-6" />
-          {rain}
+          <div className="w-8 h-8 flex items-center justify-center rounded-full bg-[#353589]">
+            <img src={RainIcon} alt="Rain Icon" className="w-4 h-4" />
+          </div>
+          <span className="">{rain}</span>
         </span>
       </div>
 
       {/* Description */}
-      <div className="text-gray-400 text-lg">{description}</div>
+      <div className="text-lg ">{description}</div>
     </div>
   );
 };
