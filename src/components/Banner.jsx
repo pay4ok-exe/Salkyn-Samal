@@ -1,12 +1,29 @@
 // Banner.js
-
-import React from "react";
+import React, { useState } from "react";
 import CloudIcon from "../assets/img/w_cloud.png"; // Replace with correct path
 import RainIcon from "../assets/img/w_rain.png"; // Replace with correct path
 import SunCloudIcon from "../assets/img/sun_cloud.png"; // Replace with correct path
 import BannerBg from "../assets/img/banner_bg.png"; // Replace with correct path
 
 const Banner = () => {
+  // State to manage weather data
+  const [weatherData, setWeatherData] = useState({
+    city: "San Francisco",
+    date: "Monday, May 23",
+    updateTime: "2:45 PM",
+    weatherDetails: [
+      { type: "Wind", value: "3km/h", icon: CloudIcon },
+      { type: "Wind", value: "3km/h", icon: CloudIcon },
+      { type: "Rain", value: "78%", icon: RainIcon },
+      { type: "Rain", value: "78%", icon: RainIcon },
+    ],
+    todayTemperature: 23,
+    temperatureRange: {
+      min: 23,
+      max: 31,
+    },
+  });
+
   return (
     <section
       className="bg-cover bg-center mt-[130px] mx-[30px] rounded-2xl p-8"
@@ -15,37 +32,27 @@ const Banner = () => {
         {/* Left Section */}
         <div className="text-white">
           <h1 className="text-[76px] font-bold leading-[99px]">
-            San Francisco
+            {weatherData.city}
           </h1>
           <div className="flex gap-16 mt-4">
-            <p className="text-lg">Monday, May 23</p>
-            <p className="text-lg">Update As Of 2:45 PM</p>
+            <p className="text-lg">{weatherData.date}</p>
+            <p className="text-lg">Update As Of {weatherData.updateTime}</p>
           </div>
           <div className="bg-white bg-opacity-90 rounded-2xl p-6 mt-8 grid grid-cols-2 gap-5">
-            <div className="flex items-center gap-3">
-              <div className="p-3 rounded-lg bg-[#7668e5]">
-                <img src={CloudIcon} alt="Wind Icon" className="h-6 w-6" />
+            {weatherData.weatherDetails.map((detail, index) => (
+              <div key={index} className="flex items-center gap-3">
+                <div className="p-3 rounded-lg bg-[#7668e5]">
+                  <img
+                    src={detail.icon}
+                    alt={`${detail.type} Icon`}
+                    className="h-6 w-6"
+                  />
+                </div>
+                <p className="text-black">
+                  {detail.type} {detail.value}
+                </p>
               </div>
-              <p className="text-black">Wind 3km/h</p>
-            </div>
-            <div className="flex items-center gap-3">
-              <div className="p-3 rounded-lg bg-[#7668e5]">
-                <img src={CloudIcon} alt="Wind Icon" className="h-6 w-6" />
-              </div>
-              <p className="text-black">Wind 3km/h</p>
-            </div>
-            <div className="flex items-center gap-3">
-              <div className="p-3 rounded-lg bg-[#7668e5]">
-                <img src={RainIcon} alt="Rain Icon" className="h-6 w-6" />
-              </div>
-              <p className="text-black">Rain 78%</p>
-            </div>
-            <div className="flex items-center gap-3">
-              <div className="p-3 rounded-lg bg-[#7668e5]">
-                <img src={RainIcon} alt="Rain Icon" className="h-6 w-6" />
-              </div>
-              <p className="text-black">Rain 78%</p>
-            </div>
+            ))}
           </div>
         </div>
 
@@ -57,10 +64,13 @@ const Banner = () => {
           <div className="mt-4">
             <img src={SunCloudIcon} alt="Weather Icon" className="mx-auto" />
             <span className="text-white text-[76px] font-semibold leading-[99px] mt-4">
-              23<sup>℃</sup>
+              {weatherData.todayTemperature}
+              <sup>℃</sup>
             </span>
             <h5 className="text-white text-xl mt-2">
-              23<sup>℃</sup> - 31<sup>℃</sup>
+              {weatherData.temperatureRange.min}
+              <sup>℃</sup> - {weatherData.temperatureRange.max}
+              <sup>℃</sup>
             </h5>
           </div>
         </div>
