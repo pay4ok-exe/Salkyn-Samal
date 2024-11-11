@@ -1,4 +1,5 @@
 import Header from "./components/Header";
+import Footer from "./components/Footer";
 import Banner from "./components/Banner";
 import WeatherForecast from "./components/WeatherForecast";
 
@@ -8,6 +9,7 @@ function App() {
       <Header />
       <Banner />
       <WeatherForecast />
+      <Footer />
     </>
   );
 }
